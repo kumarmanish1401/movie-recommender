@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simple Movie Recommender</title>
+<style>body{font-family:Arial,sans-serif;max-width:650px;margin:40px auto;padding:0 18px;line-height:1.6}label{display:block;margin-top:15px}select,button{font:inherit;padding:8px}button{display:block;margin-top:20px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #aaa;padding:8px;text-align:left}.error{color:#a00000}</style></head>
+<body><h1>Simple Movie Recommender</h1><p>Select a movie you like to see up to five movies with similar genres.</p>
+<form method="post"><label for="movie">Movie you like</label><select name="movie" id="movie" required><option value="">Choose a movie</option>{% for t in titles %}<option {% if t==title %}selected{% endif %}>{{t}}</option>{% endfor %}</select>
+<label for="genre">Optional genre filter</label><select name="genre" id="genre"><option value="">All genres</option>{% for g in genres %}<option {% if g==genre %}selected{% endif %}>{{g}}</option>{% endfor %}</select><button type="submit">Recommend</button></form>
+{% if error %}<p role="alert" class="error">{{error}}</p>{% endif %}
+{% if results is not none %}<h2>Recommended movies</h2>{% if results %}<table><thead><tr><th>Movie</th><th>Genres</th></tr></thead><tbody>{% for m in results %}<tr><td>{{m.title}}</td><td>{{m.genres}}</td></tr>{% endfor %}</tbody></table>{% else %}<p>No similar movies match this filter. Try All genres.</p>{% endif %}{% endif %}
+<p><small>Educational catalog of 20 real movie titles with simplified project genre labels. Recommendations compare genres only. No viewing history is stored.</small></p></body></html>
