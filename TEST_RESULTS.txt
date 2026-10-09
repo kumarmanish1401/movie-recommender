@@ -1,0 +1,11 @@
+test_filter (test_project.Checks.test_filter) ... ok
+test_invalid (test_project.Checks.test_invalid) ... ok
+test_no_match (test_project.Checks.test_no_match) ... ok
+test_similar_movies_and_exclusion (test_project.Checks.test_similar_movies_and_exclusion) ... ok
+test_web (test_project.Checks.test_web) ... ok
+test_web_error (test_project.Checks.test_web_error) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.031s
+
+OK
